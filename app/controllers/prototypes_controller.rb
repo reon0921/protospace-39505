@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_tweet, only: [:edit, ]
+  before_action :set_tweet, only: [:edit ]
 
   def index
     @prototypes = Prototype.includes(:user)
@@ -32,9 +32,6 @@ def update
 def create
   @prototype = Prototype.new(prototype_params)
 
-  def edit
-    @prototypes = Prototype.find(params[:id])
-  end
   if @prototype.save
     redirect_to prototype_path(@prototype)
   else
@@ -52,11 +49,11 @@ def destroy
 end
 
 
-
 private
 
 def prototype_params
   params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
 
+ 
  end
   end

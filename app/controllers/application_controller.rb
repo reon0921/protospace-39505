@@ -14,7 +14,7 @@ params.require(:prototypes).permit(:name, :image, :text).merge(user_id: current_
 end
 
 def set_tweet
-  @prototypes =Prototypes.find(params[:id])
+  @prototypes =Prototype.find(params[:id])
 end
 
 def move_to_index
