@@ -22,4 +22,3 @@ def move_to_index
     redirect_to action: :index
     end
   end
- 
