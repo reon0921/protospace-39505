@@ -4,8 +4,8 @@
       <p class="prototype__hedding">
         <%= @prototype.title %>
       </p>
-      <%= link_to "by @prototype.user.name}"#{, user_path(@prototype.user), class: :prototype__user %>
-      <% if current_user == @prototype.user%>
+      <%= link_to "by @prototype.user.name}" ,user_path(@prototype.user), class: :prototype__user %>
+<% if current_user == @prototype.user%>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
           <%= link_to "削除する", prototype_path(@prototype), data: { turbo_method: :delete }, class: :prototype__btn %>
@@ -14,7 +14,6 @@
       <div class="prototype__image">
         <%= image_tag @prototype.image %>
       </div>
-      <% if current_user == @prototype.user%>
       <div class="prototype__body">
         <div class="prototype__detail">
           <p class="detail__title">キャッチコピー</p>
@@ -53,4 +52,3 @@
     </div>
   </div>
 </main>
-
