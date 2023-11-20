@@ -7,10 +7,12 @@ class ApplicationController < ActionController::Base
   end
 end
 
+
 private
 def prototypes_params
 params.require(:prototypes).permit(:name, :image, :text).merge(user_id: current_user.id)
 end
+
 
 def set_tweet
   @prototypes =Prototype.find(params[:id])
@@ -22,3 +24,4 @@ def move_to_index
     end
    end 
  
+ main
