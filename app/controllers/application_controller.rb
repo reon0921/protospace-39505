@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action  except: [:index, :show, :search]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private

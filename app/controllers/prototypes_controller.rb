@@ -1,5 +1,7 @@
 class PrototypesController < ApplicationController
-  before_action :set_tweet, only: [:edit, ]
+  before_action :authenticate_user!, except: [:index, :show,]
+  before_action :contributor_confirmation, only: [ :update, :destroy,]
+  
 
   def index
     @prototypes = Prototype.includes(:user)
@@ -32,13 +34,10 @@ def update
 def create
   @prototype = Prototype.new(prototype_params)
 
-  def edit
-    @prototypes = Prototype.find(params[:id])
-  end
   if @prototype.save
     redirect_to prototype_path(@prototype)
   else
-    render :new, status: :unprocessable_entity
+    render :new,  status: :unprocessable_entity
   end
 end
 
