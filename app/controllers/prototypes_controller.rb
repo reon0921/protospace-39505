@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :contributor_confirmation, only: [ :update, :destroy]
+  before_action :contributor_confirmation, only: [ :edit, :update, :destroy]
   
 
   def index
@@ -48,6 +48,10 @@ def destroy
   else
     redirect_to root_path
   end
+end
+
+def contributor_confirmation
+  edit
 end
 
 
