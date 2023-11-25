@@ -36,7 +36,7 @@ def update
 def create
   @prototype = Prototype.new(prototype_params)
   if @prototype.save
-    redirect_to prototype_path(@prototype)
+    redirect_to prototypes_path(@prototype)
   else
     render :new,  status: :unprocessable_entity
   end
